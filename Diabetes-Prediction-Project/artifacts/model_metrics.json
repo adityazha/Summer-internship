@@ -1,0 +1,239 @@
+{
+  "dataset_rows": 100000,
+  "diabetes_positive_rate": 0.085,
+  "feature_columns": [
+    "gender",
+    "smoking_history",
+    "age",
+    "hypertension",
+    "heart_disease",
+    "bmi",
+    "HbA1c_level",
+    "blood_glucose_level"
+  ],
+  "best_model": "Gradient Boosting",
+  "model_comparison": [
+    {
+      "model_name": "Random Forest",
+      "accuracy": 0.9404,
+      "precision": 0.6073,
+      "recall": 0.8441,
+      "f1_score": 0.7064,
+      "roc_auc": 0.9754,
+      "confusion_matrix": [
+        [
+          17372,
+          928
+        ],
+        [
+          265,
+          1435
+        ]
+      ],
+      "classification_report": {
+        "0": {
+          "precision": 0.9849747689516357,
+          "recall": 0.9492896174863388,
+          "f1-score": 0.9668030163897933,
+          "support": 18300.0
+        },
+        "1": {
+          "precision": 0.6072788827761321,
+          "recall": 0.8441176470588235,
+          "f1-score": 0.7063746000492247,
+          "support": 1700.0
+        },
+        "accuracy": 0.94035,
+        "macro avg": {
+          "precision": 0.7961268258638838,
+          "recall": 0.8967036322725812,
+          "f1-score": 0.836588808219509,
+          "support": 20000.0
+        },
+        "weighted avg": {
+          "precision": 0.952870618626718,
+          "recall": 0.94035,
+          "f1-score": 0.9446666010008449,
+          "support": 20000.0
+        }
+      },
+      "cv_f1_mean": 0.7089,
+      "cv_f1_std": 0.0086
+    },
+    {
+      "model_name": "Gradient Boosting",
+      "accuracy": 0.9723,
+      "precision": 0.9728,
+      "recall": 0.6935,
+      "f1_score": 0.8098,
+      "roc_auc": 0.9796,
+      "confusion_matrix": [
+        [
+          18267,
+          33
+        ],
+        [
+          521,
+          1179
+        ]
+      ],
+      "classification_report": {
+        "0": {
+          "precision": 0.9722695337449436,
+          "recall": 0.9981967213114754,
+          "f1-score": 0.9850625539257981,
+          "support": 18300.0
+        },
+        "1": {
+          "precision": 0.9727722772277227,
+          "recall": 0.6935294117647058,
+          "f1-score": 0.8097527472527473,
+          "support": 1700.0
+        },
+        "accuracy": 0.9723,
+        "macro avg": {
+          "precision": 0.9725209054863332,
+          "recall": 0.8458630665380906,
+          "f1-score": 0.8974076505892727,
+          "support": 20000.0
+        },
+        "weighted avg": {
+          "precision": 0.9723122669409798,
+          "recall": 0.9723,
+          "f1-score": 0.9701612203585888,
+          "support": 20000.0
+        }
+      },
+      "cv_f1_mean": 0.8045,
+      "cv_f1_std": 0.0063
+    },
+    {
+      "model_name": "Logistic Regression",
+      "accuracy": 0.8874,
+      "precision": 0.4229,
+      "recall": 0.8882,
+      "f1_score": 0.5729,
+      "roc_auc": 0.9625,
+      "confusion_matrix": [
+        [
+          16239,
+          2061
+        ],
+        [
+          190,
+          1510
+        ]
+      ],
+      "classification_report": {
+        "0": {
+          "precision": 0.9884350843021487,
+          "recall": 0.8873770491803279,
+          "f1-score": 0.9351838521120677,
+          "support": 18300.0
+        },
+        "1": {
+          "precision": 0.4228507420890507,
+          "recall": 0.888235294117647,
+          "f1-score": 0.5729463099981028,
+          "support": 1700.0
+        },
+        "accuracy": 0.88745,
+        "macro avg": {
+          "precision": 0.7056429131955997,
+          "recall": 0.8878061716489875,
+          "f1-score": 0.7540650810550853,
+          "support": 20000.0
+        },
+        "weighted avg": {
+          "precision": 0.9403604152140354,
+          "recall": 0.88745,
+          "f1-score": 0.9043936610323806,
+          "support": 20000.0
+        }
+      },
+      "cv_f1_mean": 0.5673,
+      "cv_f1_std": 0.0094
+    }
+  ],
+  "selected_model_metrics": {
+    "model_name": "Gradient Boosting",
+    "accuracy": 0.9723,
+    "precision": 0.9728,
+    "recall": 0.6935,
+    "f1_score": 0.8098,
+    "roc_auc": 0.9796,
+    "confusion_matrix": [
+      [
+        18267,
+        33
+      ],
+      [
+        521,
+        1179
+      ]
+    ],
+    "classification_report": {
+      "0": {
+        "precision": 0.9722695337449436,
+        "recall": 0.9981967213114754,
+        "f1-score": 0.9850625539257981,
+        "support": 18300.0
+      },
+      "1": {
+        "precision": 0.9727722772277227,
+        "recall": 0.6935294117647058,
+        "f1-score": 0.8097527472527473,
+        "support": 1700.0
+      },
+      "accuracy": 0.9723,
+      "macro avg": {
+        "precision": 0.9725209054863332,
+        "recall": 0.8458630665380906,
+        "f1-score": 0.8974076505892727,
+        "support": 20000.0
+      },
+      "weighted avg": {
+        "precision": 0.9723122669409798,
+        "recall": 0.9723,
+        "f1-score": 0.9701612203585888,
+        "support": 20000.0
+      }
+    },
+    "cv_f1_mean": 0.8045,
+    "cv_f1_std": 0.0063
+  },
+  "feature_importance": [
+    {
+      "feature": "HbA1c_level",
+      "importance": 0.629
+    },
+    {
+      "feature": "blood_glucose_level",
+      "importance": 0.3219
+    },
+    {
+      "feature": "bmi",
+      "importance": 0.0194
+    },
+    {
+      "feature": "age",
+      "importance": 0.0188
+    },
+    {
+      "feature": "hypertension",
+      "importance": 0.0047
+    },
+    {
+      "feature": "heart_disease",
+      "importance": 0.0035
+    },
+    {
+      "feature": "smoking_history",
+      "importance": 0.0018
+    },
+    {
+      "feature": "gender",
+      "importance": 0.0009
+    }
+  ]
+}

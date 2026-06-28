@@ -1,99 +1,135 @@
 # Diabetes Prediction using Machine Learning
 
-**Introduction**
+A complete college ML project that predicts diabetes risk from patient health indicators and deploys the model through an interactive Streamlit web application.
 
-This Streamlit application leverages a machine learning model to predict diabetes risk based on individual medical history and demographic information. By analyzing factors such as age, gender, body mass index (BMI), hypertension, heart disease, smoking history, HbA1c level, and blood glucose level, this application assists healthcare professionals in identifying patients at risk of developing diabetes. Furthermore, it empowers researchers to explore the intricate relationships between various factors and the likelihood of diabetes occurrence.
+## Introduction
 
+This project uses machine learning to classify whether a person is likely to have diabetes based on demographic and clinical features such as age, gender, BMI, hypertension, heart disease, smoking history, HbA1c level, and blood glucose level.
 
-**Table of Contents**
+The system includes:
+- Exploratory Data Analysis (EDA) notebook
+- Automated model training with multiple algorithm comparison
+- Saved ML pipeline for consistent predictions
+- Streamlit web app with probability-based risk assessment
 
-1. Key Technologies and Skills
-2. Installation
-3. Usage
-4. Features
-5. Contributing
-6. License
-7. Contact
+## Project Structure
 
-
-**Key Technologies and Skills**
-- Python
-- Pandas
-- Numpy
-- Scikit Learn
-- Streamlit
-
-
-**Installation**
-
-To run this project, you need to install the following packages:
-
-```python
-pip install pandas
-pip install numpy
-pip install scikit-learn
-pip install streamlit
+```
+Diabetes-Prediction-using-Machine-Learning/
+├── app.py                  # Streamlit web application
+├── train_model.py          # Model training & evaluation script
+├── requirements.txt        # Python dependencies
+├── notebooks/
+│   └── diabetes_eda.ipynb  # EDA notebook with visualizations
+├── docs/
+│   └── PRESENTATION.md     # College presentation slide content
+├── artifacts/
+│   ├── diabetes_model.pkl  # Saved best model pipeline
+│   └── model_metrics.json  # Training metrics & comparisons
+└── .streamlit/
+    └── config.toml         # Streamlit theme config
 ```
 
-**Usage**
+## Key Technologies
 
-To use this project, follow these steps:
+- Python 3.10+
+- Pandas, NumPy
+- Scikit-learn, Joblib
+- Streamlit
+- Matplotlib, Seaborn (EDA)
 
-1. Clone the repository: ```git clone https://github.com/gopiashokan/Diabetes-Prediction-using-Machine-Learning.git```
-2. Install the required packages: ```pip install -r requirements.txt```
-3. Run the Streamlit app: ```streamlit run app.py```
-4. Access the app in your browser at ```http://localhost:8501```
+## Installation
 
+```bash
+git clone https://github.com/gopiashokan/Diabetes-Prediction-using-Machine-Learning.git
+cd Diabetes-Prediction-using-Machine-Learning
+pip install -r requirements.txt
+```
 
-**Features**
+## Usage
 
-**Dataset Source**
+### 1. Train the Model
 
-The analysis is based on the "Diabetes prediction dataset" dataset sourced from Kaggle. This dataset provides a rich source of information that serves as the foundation for predicting diabetes risk.
+```bash
+python train_model.py
+```
 
-**Data Preprocessing with Ordinal Encoder**
+This compares Random Forest, Gradient Boosting, and Logistic Regression, then saves the best model to `artifacts/`.
 
-Prior to model training, the dataset undergoes a crucial preprocessing step. The ordinal encoder is applied to transform categorical variables into numerical values. This transformation ensures that the machine learning model can effectively interpret and learn from the data.
+### 2. Run the Web App
 
-**Machine Learning Model: Random Forest Algorithm**
+```bash
+streamlit run app.py
+```
 
-- The heart of this project lies in the utilization of the Random Forest algorithm for diabetes prediction. This powerful ensemble learning technique is well-suited for the task at hand, as it excels in handling complex datasets and making accurate predictions.
-- The model has been trained on the preprocessed data, using a combination of medical history and demographic metrics as input features.
+Open in browser: `http://localhost:8501`
 
-**Impressive Accuracy Score**
+### 3. Run EDA Notebook (Optional)
 
-The predictive model has demonstrated exceptional performance, boasting an accuracy score of 96.88%. This high level of accuracy ensures reliable and trustworthy predictions, making it a valuable tool for both healthcare professionals and researchers.
+```bash
+jupyter notebook notebooks/diabetes_eda.ipynb
+```
 
-**User-Friendly Streamlit Application**
+## Model Performance
 
-- This Streamlit application offers an intuitive and user-friendly interface. Users can effortlessly input their medical and demographic information, including gender, age, hypertension, heart diseases, smoking history, BMI, HbA1c level, and blood glucose level.
-- After providing these details, the application swiftly processes the information and generates a diabetes risk prediction based on the input data. This enables users to quickly assess their potential risk of developing diabetes.
+**Best Model:** Gradient Boosting
 
-**Accessibility**
+| Metric | Score |
+|--------|-------|
+| Accuracy | 97.23% |
+| Precision | 97.28% |
+| Recall | 69.35% |
+| F1 Score | 80.98% |
+| ROC-AUC | 97.96% |
+| CV F1 (5-fold) | 80.45% |
 
-- The Streamlit application is readily accessible through the following link: [https://gopiashokan-diabetes-prediction.streamlit.app/](https://gopiashokan-diabetes-prediction.streamlit.app/). 
+## Features
 
-- Users can conveniently access the tool in their web browsers, making it easily available for healthcare professionals and individuals concerned about diabetes risk.
+### Machine Learning Pipeline
+- Stratified train-test split (80/20)
+- Ordinal encoding for categorical features
+- Standard scaling for numeric features
+- Class imbalance handling with balanced weights
+- 5-fold cross-validation
+- Automatic best model selection by F1 score
 
+### Streamlit Application
+- **Predict Tab** - Input patient details and get instant prediction
+- **Model Analysis Tab** - Model comparison, confusion matrix, feature importance
+- **About Tab** - Project overview and setup instructions
+- Probability percentage and risk level (Low / Moderate / High)
 
+### Top Predictive Features
+1. HbA1c Level (~63% importance)
+2. Blood Glucose Level (~32% importance)
+3. BMI, Age, Hypertension, Heart Disease
 
-**Contributing**
+## Dataset
 
-Contributions to this project are welcome! If you encounter any issues or have suggestions for improvements, please feel free to submit a pull request.
+**Source:** [Diabetes Prediction Dataset](https://www.kaggle.com/datasets/iamahmadjutt/diabetes-prediction-dataset) (Kaggle)
 
+- **Records:** 100,000
+- **Features:** 8 input features + 1 target (diabetes)
+- **Class Distribution:** ~91.5% non-diabetic, ~8.5% diabetic
 
-**License**
+## College Presentation
 
-This project is licensed under the MIT License. Please review the LICENSE file for more details.
+Ready-made slide content is available in [`docs/PRESENTATION.md`](docs/PRESENTATION.md) including:
+- Introduction & objectives
+- EDA findings
+- Model comparison tables
+- Architecture diagram
+- Viva Q&A preparation
 
+## Disclaimer
 
-**Contact**
+This project is for **educational purposes only**. It is not a substitute for professional medical diagnosis. Always consult a qualified doctor for health decisions.
 
-📧 Email: gopiashokankiot@gmail.com 
+## License
 
-🌐 LinkedIn: [linkedin.com/in/gopiashokan](https://www.linkedin.com/in/gopiashokan)
+This project is licensed under the MIT License. See [LICENSE.md](LICENSE.md) for details.
 
-For any further questions or inquiries, feel free to reach out. We are happy to assist you with any queries.
+## Contact
 
-
-![](https://github.com/gopiashokan/Diabetes-Prediction-using-Machine-Learning/blob/main/streamlit_application.JPG)
+- Email: gopiashokankiot@gmail.com
+- LinkedIn: [linkedin.com/in/gopiashokan](https://www.linkedin.com/in/gopiashokan)
